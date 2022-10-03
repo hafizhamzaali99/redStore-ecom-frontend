@@ -8,7 +8,7 @@ const AppbarDesktop = ({ matches }) => {
     return (
         <>
             <AppbarContainer>
-                <AppbarHeader>My Bag</AppbarHeader>
+                <AppbarHeader>RedStoreHub</AppbarHeader>
                 <MyList type="row">
                     <ListItemText primary='Home'/>
                     <ListItemText primary='Categories'/>

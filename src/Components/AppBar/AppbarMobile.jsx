@@ -11,7 +11,7 @@ const AppbarMobile = ({ matches }) => {
                 <IconButton>
                     <Menu />
                 </IconButton>
-                <AppbarHeader textAlign='center'>My Bag</AppbarHeader>
+                <AppbarHeader textAlign='center'>RedStoreHub</AppbarHeader>
                 <IconButton>
                     <Search />
                 </IconButton>
