@@ -17,9 +17,9 @@ import FitScreenIcon from "@mui/icons-material/FitScreen";
 // import ProductDetail from "../productdetail";
 import ProductMeta from "./ProductMeta";
 
-const SingleProduct = ({ product, matches }) => {
+export default function SingleProductDesktop({ product, matches }) {
 //   const [ProductDetailDialog, showProductDetailDialog, closeProductDialog] =
-//     useDialogModal(ProductDetail);
+    // useDialogModal(ProductDetail);
 
   const [showOptions, setShowOptions] = useState(false);
 
@@ -33,12 +33,16 @@ const SingleProduct = ({ product, matches }) => {
     <>
       <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <ProductImage src={product.image} />
-        <ProductMeta product={product} matches={matches} />
-        <ProductActionsWrapper>
+        <ProductFavButton isfav={0}>
+          <FavoriteIcon />
+        </ProductFavButton>
+        {(showOptions || matches) && (
+          <ProductAddToCart show={showOptions} variant="contained">
+            Add to cart
+          </ProductAddToCart>
+        )}
+        <ProductActionsWrapper show={showOptions || matches}>
           <Stack direction={matches ? "row" : "column"}>
-            <ProductFavButton isfav={0}>
-              <FavoriteIcon />
-            </ProductFavButton>
             <ProductActionButton>
               <Tooltip placement="left" title="share this product">
                 <ShareIcon color="primary" />
@@ -52,10 +56,8 @@ const SingleProduct = ({ product, matches }) => {
           </Stack>
         </ProductActionsWrapper>
       </Product>
-      {/* <ProductAddToCart variant="contained">Add to cart</ProductAddToCart> */}
+      <ProductMeta product={product} />
       {/* <ProductDetailDialog product={product} /> */}
     </>
   );
 }
-
-export default SingleProduct;

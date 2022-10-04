@@ -9,8 +9,6 @@ export const Product = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
-  // height:'100%',
-  
   [theme.breakpoints.up("md")]: {
     position: "relative",
   },
@@ -33,15 +31,13 @@ export const ProductActionButton = styled(IconButton)(() => ({
   margin: 4,
 }));
 
-export const ProductFavButton = styled(ProductActionButton,{
-  shouldForwardProp:(prop)=>prop !== 'isFav'
-})(({ isFav, theme }) => ({
-  color: isFav ? Colors.primary : Colors.light,  
-  // [theme.breakpoints.up("md")]: {
-  //   // position: "absolute",
-  //   // right: 0,
-  //   // top: 0,
-  // },
+export const ProductFavButton = styled(ProductActionButton)(({ isfav, theme }) => ({
+  color: isfav ? Colors.primary : Colors.light,  
+  [theme.breakpoints.up("md")]: {
+    position: "absolute",
+    right: 0,
+    top: 0,
+  },
 }));
 
 export const ProductAddToCart = styled(Button, {
@@ -49,7 +45,6 @@ export const ProductAddToCart = styled(Button, {
 })(({ show, theme }) => ({
   width: "120px",
   fontSize: "12px",
-  // marginTop:"20px",
   [theme.breakpoints.up("md")]: {
     position: "absolute",    
     bottom: "2%",
@@ -71,11 +66,11 @@ export const ProductMetaWrapper = styled(Box)(({theme}) => ({
 }));
 
 export const ProductActionsWrapper = styled(Box)(({ show, theme }) => ({ 
-  display: show ? 'visible' : 'none',
   [theme.breakpoints.up("md")]: {
-    // position: "absolute",
-    // right: 0,
-    // top: '20%',
+    display: show ? 'visible' : 'none',
+    position: "absolute",
+    right: 0,
+    top: '20%',
     animation: show && `${slideInRight} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
   }
 }));
